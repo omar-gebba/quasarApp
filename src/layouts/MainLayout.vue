@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header class="bg-blue-grey-5" elevated>
+    <q-header class="bg-blue-grey-5">
       <q-toolbar>
         <div class="status">
           <q-icon class="text-negative" size="25px" name="online_prediction" /><span class="q-status">

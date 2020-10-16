@@ -1,6 +1,6 @@
 <template>
   <q-tabs>
-    <q-route-tab class="footer-tabs text-blue-grey-10" :icon="icon" :label="title" :to="link" exact />
+    <q-route-tab class="footer-tabs text-capitalize text-blue-grey-10" :icon="icon" :label="title" :to="link" exact />
   </q-tabs>
 </template>
 <script>

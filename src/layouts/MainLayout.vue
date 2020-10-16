@@ -133,7 +133,7 @@ export default {
 ////////////////// Drawer //////////
 .q-drawer {
   .q-router-link--active {
-    background-color: #eef3ebed;
+    background-color: #cbcdc9ed;
     color: $negative !important;
   }
 }

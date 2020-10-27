@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpR fFf">
+  <q-layout view="hHh lpR lFf">
     <q-header class="bg-blue-grey-5">
       <q-toolbar>
         <div class="status">
@@ -31,6 +31,7 @@
       show-if-above
       bordered
       content-class="bg-blue-grey-4"
+      reveal-offset="100"
     >
       <q-list dark>
         <q-item-label dark header class="text-negative">
@@ -66,7 +67,7 @@ const linksData = [
     title: "Generic LPR",
     caption: "github.com/quasarframework",
     icon: "gavel",
-    link: "##"
+    link: "/generic"
   },
   {
     title: "Matching",

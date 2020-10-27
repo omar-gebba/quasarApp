@@ -61,9 +61,9 @@ export default {
   }
 }
 </script>
-<style scopped>
+<style lang="scss" scopped>
 .q-layout {
-    background-color: #f3eded !important;
+    background-color: $bg-main !important;
 }
 
 </style>

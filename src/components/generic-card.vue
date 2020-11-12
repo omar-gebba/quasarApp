@@ -1,15 +1,6 @@
 <template>
-  <div class="main q-pa-md col items-start q-gutter-md">
-
-    <div style="background-color: #f3eded; " class="q-pa-md row relative-position">
-      <search></search>
-      <toggle></toggle>
-    </div>
-
-    <div class="row q-mt-xs items-start q-gutter-md">
-      <q-card class="my-card "
-      v-for="(data, key) of generic"
-      :key="key" >
+  <div class="row q-mt-xs items-start q-gutter-md">
+      <q-card class="my-card">
 
       <q-img src="https://cdn.quasar.dev/img/mountains.jpg">
         <div class="absolute-bottom text-h6">{{ data.plate_number }}</div>
@@ -55,44 +46,14 @@
 
     </q-card>
     </div>
-  </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
-  components: {
-    'search' : require('src/components/modals/saerch.vue').default,
-    'toggle' : require('src/components/modals/toggle.vue').default,
-  },
-  computed: {
-    ...mapGetters('generic', ['generic'])
-  }
+
 }
 </script>
 
-<style lang="scss" scoped>
-.main {
-    background-color: $bg-main !important;
-}
+<style>
 
-.q-select {
-  background-color: white !important;
-  border: solid 1px rgb(54, 15, 15);
-  border-radius: .6rem;
-  .q-field__label {
-    color: red !important;
-  }
-}
-.my-card {
-  width: 100%;
-  max-width: 250px;
-  //////////
-  .q-item {
-  background-color: $bg-main;
-}
-.q-separator {
-  background-color: #fff;
-}
-}
 </style>

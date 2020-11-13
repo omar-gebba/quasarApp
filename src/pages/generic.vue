@@ -1,85 +1,50 @@
 <template>
-  <div class="main q-pa-md col items-start q-gutter-md">
-
-    <div style="background-color: #f3eded; " class="q-pa-md row relative-position">
+  <div 
+  class="main q-pa-md col items-start q-gutter-md"
+  :class="{'back-white': !Object.keys(generic).length }"
+  
+  >
+    <div 
+      style="background-color: #f3eded"
+      :class="{'q-pa-md row relative-position': Object.keys(generic).length,'back-white': !Object.keys(generic).length}">
+       
+    <!-- serarch bar and toggel button-->
       <search></search>
-      <toggle></toggle>
+      <toggle v-if="Object.keys(generic).length"></toggle>
+
     </div>
-
-    <div class="row q-mt-xs items-start q-gutter-md">
-      <q-card class="my-card "
-      v-for="(data, key) of generic"
-      :key="key" >
-
-      <q-img src="https://cdn.quasar.dev/img/mountains.jpg">
-        <div class="absolute-bottom text-h6">{{ data.plate_number }}</div>
-      </q-img>
-      <q-card-section>
-        <div class="absolute-center text-h6">{{ data.device_name}}</div>
-      </q-card-section>
-
-        <div
-          class="q-pa-xs col-xs-12 col-sm-6 col-md-4 col-lg-3 grid-style-transition"
-        >
-          <q-card>
-            <q-list dense>
-              <q-item style="background-color: $bg-main !important" >
-                <q-item-section>
-                  <q-item-label>Speed</q-item-label>
-                </q-item-section>
-                <q-item-section side>
-                  <q-item-label caption>{{ data.speed }}</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-separator />
-              <q-item >
-                <q-item-section>
-                  <q-item-label>Confidence</q-item-label>
-                </q-item-section>
-                <q-item-section side>
-                  <q-item-label caption>{{ data.confidence_number }}</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-separator />
-              <q-item >
-                <q-item-section>
-                  <q-item-label>Date&Time</q-item-label>
-                </q-item-section>
-                <q-item-section side>
-                  <q-item-label caption>{{ data.date_time }}</q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-list>
-          </q-card>
-        </div>
-
-    </q-card>
-    </div>
+    <!-- a paragraph to show when no search result -->
+    <p class="q-pl-lg" v-if="!Object.keys(generic).length">
+      Sorry! Your Search Value Not Match!
+    </p>
+    <!-- generic card -->
+    <generic-card :generic="generic" />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
   components: {
-    'search' : require('src/components/modals/saerch.vue').default,
-    'toggle' : require('src/components/modals/toggle.vue').default,
+    'search'      : require("src/components/modals/saerch.vue").default,
+    'toggle'      : require("src/components/modals/toggle.vue").default,
+    "generic-card": require("src/components/generic-card.vue").default
   },
   computed: {
-    ...mapGetters('generic', ['generic'])
+    ...mapGetters("generic", ["generic"])
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .main {
-    background-color: $bg-main !important;
+  background-color: $bg-main !important;
 }
 
 .q-select {
   background-color: white !important;
   border: solid 1px rgb(54, 15, 15);
-  border-radius: .6rem;
+  border-radius: 0.6rem;
   .q-field__label {
     color: red !important;
   }
@@ -89,10 +54,13 @@ export default {
   max-width: 250px;
   //////////
   .q-item {
-  background-color: $bg-main;
+    background-color: $bg-main;
+  }
+  .q-separator {
+    background-color: #fff;
+  }
 }
-.q-separator {
-  background-color: #fff;
-}
+.back-white {
+  background-color: #fff !important;
 }
 </style>

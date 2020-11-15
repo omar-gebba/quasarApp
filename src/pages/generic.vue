@@ -5,17 +5,19 @@
   
   >
     <div 
-      style="background-color: #f3eded"
+      style="background-color: #f3eded; margin-top: 0"
       :class="{'q-pa-md row relative-position': Object.keys(generic).length,'back-white': !Object.keys(generic).length}">
-       
-    <!-- serarch bar and toggel button-->
-      <search></search>
-      <toggle v-if="Object.keys(generic).length"></toggle>
 
+    <!-- Serarch bar  -->
+      <search />
+    <!-- Search By Select-Box  -->
+      <searchBy v-if="Object.keys(generic).length"/>
+    <!-- toggel button -->
+      <toggle v-if="Object.keys(generic).length"></toggle>
     </div>
     <!-- a paragraph to show when no search result -->
     <p class="q-pl-lg" v-if="!Object.keys(generic).length">
-      Sorry! Your Search Value Not Match!
+      Sorry! Your Search Value Can't Match.
     </p>
     <!-- generic card -->
     <generic-card :generic="generic" />
@@ -28,7 +30,9 @@ export default {
   components: {
     'search'      : require("src/components/modals/saerch.vue").default,
     'toggle'      : require("src/components/modals/toggle.vue").default,
-    "generic-card": require("src/components/generic-card.vue").default
+    'generic-card': require("src/components/generic-card.vue").default,
+    'searchBy'    : require('src/components/modals/searchBy.vue').default,
+
   },
   computed: {
     ...mapGetters("generic", ["generic"])
@@ -39,15 +43,6 @@ export default {
 <style lang="scss" scoped>
 .main {
   background-color: $bg-main !important;
-}
-
-.q-select {
-  background-color: white !important;
-  border: solid 1px rgb(54, 15, 15);
-  border-radius: 0.6rem;
-  .q-field__label {
-    color: red !important;
-  }
 }
 .my-card {
   width: 100%;
@@ -62,5 +57,6 @@ export default {
 }
 .back-white {
   background-color: #fff !important;
+  margin:17px 0 0 8px;
 }
 </style>

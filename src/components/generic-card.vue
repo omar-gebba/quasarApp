@@ -1,5 +1,5 @@
 <template>
-<div class="row q-mt-xs items-start q-gutter-md">
+<div class="row items-start q-gutter-md" style="margin-top: -25px">
   <q-card class="my-card" v-for="(data, key) of generic" :key="key">
     <q-img src="https://cdn.quasar.dev/img/mountains.jpg">
       <div class="absolute-bottom text-h6">{{ data.plate_number }}</div>
@@ -9,9 +9,9 @@
     </q-card-section>
 
     <div class="q-pa-xs col-xs-12 col-sm-6 col-md-4 col-lg-3 grid-style-transition">
-      <q-card>
+      <q-card class="small-card">
         <q-list dense>
-          <q-item style="background-color: $bg-main !important">
+          <q-item>
             <q-item-section>
               <q-item-label>Speed</q-item-label>
             </q-item-section>
@@ -50,4 +50,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.small-card {
+  background-color: $bg-main;
+}
+</style>></style>

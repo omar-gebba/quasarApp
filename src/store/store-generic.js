@@ -207,33 +207,40 @@ const state = {
       violation_type: null
     }
   },
-  search: ""
+  search: "",
+  searchBy: "device_name"
 };
 /////////////////////////////////// MUTATIONS //////////////////////////////////////////////////
 const mutations = {
-  setSearch(state, value) {
+  setSearch(state, value) {             ///search
     state.search = value;
+  },
+  defineSearch(state,value) {          /// search by a value
+    state.searchBy = value
   }
 };
 /////////////////////////////////// ACTIONS ////////////////////////////////////////////////////
 
 const actions = {
-  setSearch({ commit }, value) {
+  setSearch({ commit }, value) {       ///search
     commit("setSearch", value);
+  },
+  defineSearch({commit}, value) {      ///serach by a value
+    commit('defineSearch', value)
   }
 };
 
 /////////////////////////////////// GETTERS ////////////////////////////////////////////////////
 
 const getters = {
-  dataFiltered: state => {
+  dataFiltered: state => {                /// filter data to search
     let datafiltered = {};
     if (state.search) {
       Object.keys(state.generic).forEach(function(key) {
         let data = state.generic[key],
-          name = data.device_name.toLowerCase(),
-          search = state.search.toLowerCase();
-        if (name.includes(search)) {
+            defineSearch = data[state.searchBy].toLowerCase(),
+            search = state.search.toLowerCase();
+        if (defineSearch.includes(search)) {
           datafiltered[key] = data;
         }
       });

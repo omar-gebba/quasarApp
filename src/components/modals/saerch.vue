@@ -2,16 +2,19 @@
    <q-input
         clearable
         filled
+        dense
         v-model="searchField"
         label="Search"
-        style="width: 250px"
+        label-color="negative"
+        style="width: 250px;padding-left: 0"
+        class="q-pl-lg"
         color="negative"
+        bg-color="blue-grey-2"
       />
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 export default {
   methods: {
     ...mapActions('generic', ['setSearch'])
@@ -31,6 +34,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  
 </style>

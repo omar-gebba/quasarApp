@@ -3,18 +3,20 @@
     <q-header class="bg-blue-grey-5">
       <q-toolbar>
         <div class="status">
-          <q-icon class="text-negative" size="25px" name="online_prediction" /><span class="q-status">
-            Status</span
-          >
+          <q-icon
+            class="text-negative"
+            size="25px"
+            name="online_prediction"
+          /><span class="q-status"> Status</span>
         </div>
-
-        <q-toolbar-title class="title absolute-center shadow-24 text-negative">
+        <!-- title -->
+        <q-toolbar-title class="title absolute-center glossy shadow-24 text-negative">
           Camera App
         </q-toolbar-title>
-
+        <!-- user menue -->
         <div class="absolute-bottom-right">
-          <q-icon clickable size="2rem" name="supervisor_account" />
-          <q-icon class="log-down-arrow" size="2rem" name="arrow_drop_down" />
+          
+          <userMenue />
         </div>
       </q-toolbar>
     </q-header>
@@ -55,6 +57,7 @@
 <script>
 import EssentialLink from "components/EssentialLink.vue";
 import cFooter from "src/components/cFooter.vue";
+import userMenue from "src/components/modals/shared/userMenue.vue";
 
 const linksData = [
   {
@@ -85,7 +88,7 @@ const linksData = [
 
 export default {
   name: "MainLayout",
-  components: { EssentialLink, cFooter },
+  components: { EssentialLink, cFooter, userMenue },
   data() {
     return {
       essentialLinks: linksData
@@ -96,11 +99,11 @@ export default {
 <style lang="scss" scoped>
 //////////// media screen  ////////////
 
-  @media screen and (min-width: 763px) {
-    .q-footer {
-      display: none;
-    }
+@media screen and (min-width: 763px) {
+  .q-footer {
+    display: none;
   }
+}
 
 .q-header {
   //////////// media screen for status span ////////////

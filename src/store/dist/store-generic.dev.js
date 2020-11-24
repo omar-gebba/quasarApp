@@ -4,6 +4,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
+
+/*                                        STATES                                                 */
+///////////////////////////********************************************///////////////////////////
 var state = {
   generic: {
     ID1: {
@@ -209,7 +212,9 @@ var state = {
   },
   search: "",
   searchBy: "device_name"
-}; /////////////////////////////////// MUTATIONS //////////////////////////////////////////////////
+};
+/*                                        MUTATIONS                                                 */
+///////////////////////////********************************************///////////////////////////
 
 var mutations = {
   setSearch: function setSearch(state, value) {
@@ -220,7 +225,9 @@ var mutations = {
     /// search by a value
     state.searchBy = value;
   }
-}; /////////////////////////////////// ACTIONS ////////////////////////////////////////////////////
+};
+/*                                        ACTIONS                                               */
+///////////////////////////********************************************/////////////////////////////
 
 var actions = {
   setSearch: function setSearch(_ref, value) {
@@ -233,7 +240,9 @@ var actions = {
     ///serach by a value
     commit('defineSearch', value);
   }
-}; /////////////////////////////////// GETTERS ////////////////////////////////////////////////////
+};
+/*                                        GETTERS                                             */
+///////////////////////////********************************************////////////////////////
 
 var getters = {
   dataFiltered: function dataFiltered(state) {
@@ -259,7 +268,8 @@ var getters = {
     var dataFiltered = getters.dataFiltered;
     return dataFiltered;
   }
-};
+}; ///////////////////////////********************************************////////////////////////
+
 var _default = {
   namespaced: true,
   state: state,

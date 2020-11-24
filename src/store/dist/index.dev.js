@@ -11,6 +11,8 @@ var _vuex = _interopRequireDefault(require("vuex"));
 
 var _storeGeneric = _interopRequireDefault(require("./store-generic"));
 
+var _storeAuth = _interopRequireDefault(require("./store-Auth"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 _vue["default"].use(_vuex["default"]);
@@ -29,7 +31,8 @@ function _default()
 {
   var Store = new _vuex["default"].Store({
     modules: {
-      generic: _storeGeneric["default"]
+      generic: _storeGeneric["default"],
+      Auth: _storeAuth["default"]
     },
     // enable strict mode (adds overhead!)
     // for dev mode only

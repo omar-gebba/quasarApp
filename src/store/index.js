@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import generic from './store-generic'
+import generic from './store-generic';
+import Auth from './store-Auth';
 
 Vue.use(Vuex)
 
@@ -17,7 +18,8 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
-      generic
+      generic,
+      Auth
     },
 
     // enable strict mode (adds overhead!)
